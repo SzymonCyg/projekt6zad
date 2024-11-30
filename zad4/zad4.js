@@ -11,13 +11,14 @@ const produkty =[
 ]
 function filter(category, minPrice, maxPrice) {
     return produkty.filter(product => {
-        return(category ? product.category  == category :true && 
-        minPrice ? product.price >= minPrice :true && 
-        maxPrice ? product.price <= maxPrice : true) 
+        const categoryMatch = category ? product.category === category : true;
+        const minPriceMatch = minPrice ? product.price >= minPrice : true;
+        const maxPriceMatch = maxPrice ? product.price <= maxPrice : true;
+        return categoryMatch && minPriceMatch && maxPriceMatch;
     });
 }
 
-const filteredProducts = filter('', 10, 7000);
+const filteredProducts = filter('', 0,700);
 console.log(filteredProducts);
 
 
